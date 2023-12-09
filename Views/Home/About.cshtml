@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+<style>
+    .about-container {
+        background: url('your-background-image.jpg'); /* Add a background image or choose a solid color */
+        color: #fff; /* Adjust text color for readability */
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .about-header {
+        font-family: 'Arial', sans-serif; /* Choose a header font */
+        color: #4a90e2; /* Header text color */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        font-family: 'Verdana', sans-serif; /* Body text font */
+        font-size: 16px;
+        line-height: 1.6; /* Adjust line spacing for readability */
+    }
+
+    .about-link:hover {
+        color: #f0ad4e; /* Hover effect for links */
+    }
+
+    .about-button {
+        background-color: #4a90e2; /* Button background color */
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .about-button:hover {
+        background-color: #f0ad4e; /* Hover effect for buttons */
+        color: black;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .about-container {
+            padding: 10px;
+        }
+    }
+</style>
+
+<div class="container about-container">
+    <h2 class="about-header">About Weather App</h2>
+    <p class="about-text">This weather app provides weather information by calling three different APIs, first to populate drop-down lists of locations, next to turn location names into coordinates, and finally to get weather data from coordinates.</p>
+    <p class="about-text">To get the current weather conditions, go to the <a class="about-link" asp-controller="OpenWeatherMap" asp-action="Index">Weather Forecast</a> page and choose your desired location.</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Consider adding images or icons here -->
+        </div>
+        <div class="col-md-6">
+            <a class="about-button" asp-controller="OpenWeatherMap" asp-action="Index">Go to Weather Forecast</a>
+        </div>
+    </div>
+</div>

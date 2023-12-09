@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Html;
+@model ASP.NET_MVC_WeatherApp.Models.Geocoder
+
+<style>
+    .forecast-container {
+        margin-top: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .forecast-header {
+        text-align: center;
+        color: #4a90e2;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    select, .btn-primary {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .btn-primary {
+        background-color: #4a90e2;
+        border: none;
+        color: white;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #f0ad4e;
+    }
+
+    .text-danger {
+        color: #ff6a00;
+    }
+
+
+        .control-label, select, .btn-primary {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<div class="container forecast-container">
+    <h1 class="forecast-header">Get Forecast</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="GetWeather">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <div class="form-group">
+                    <label asp-for="countryCode" class="control-label">Country</label>
+                    <select asp-for="countryCode" class="form-control" id="countrySelect">
+                        <option>Please select one</option>
+                        <!-- Add country options here -->
+                    </select>
+                    <span asp-validation-for="countryCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="stateCode" class="control-label">State</label>
+                    <select asp-for="stateCode" class="form-control" id="stateSelect">
+                        <option>Please select one</option>
+                        <!-- Add state options here -->
+                    </select>
+                    <span asp-validation-for="stateCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="cityName" class="control-label">City</label>
+                    <select asp-for="cityName" class="form-control" id="citySelect">
+                        <option>Please select one</option>
+                        <!-- Add city options here -->
+                    </select>
+                    <span asp-validation-for="cityName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Get Weather" class="btn btn-primary" id="getWeatherButton"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
